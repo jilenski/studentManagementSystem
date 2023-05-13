@@ -58,6 +58,7 @@ do {
   <table>
     <thead>
       <tr>
+        <th></th>
         <th>First Name</th>
         <th>Last Name</th>
       </tr>
@@ -67,6 +68,9 @@ do {
     <tbody>
       <?php do { ?>
         <tr>
+          <!-- code below call the id number based on database -->
+          <td><a href="details.php?ID=<?php echo $row['id']; ?>">view</a></td>
+
           <td><?php echo $row['first_name']; ?></td>
           <td><?php echo $row['last_name']; ?></td>
         </tr>
