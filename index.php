@@ -7,7 +7,7 @@ include_once("connections/connection.php");
 $con = connection();
 
 // getting data from database
-$sql = "SELECT * FROM student_list";
+$sql = "SELECT * FROM student_list ORDER BY id DESC"; //adding ORDER BY to display the latest input first
 $students = $con->query($sql) or die($con->error); //query the database //note: die() function is used for error proofing in case of query failure
 $row = $students->fetch_assoc(); //fetch the associated data
 
