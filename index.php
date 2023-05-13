@@ -1,5 +1,17 @@
 <?php
 
+//checking if there is no ongoing session //!isset means null or not set
+if (!isset($_SESSION)) {
+  session_start(); //will start if there is no ongoing session
+}
+
+//checking whether there is a user logged-in and return message with user's name
+if (isset($_SESSION['UserLogin'])) {
+  echo "Welcome " . $_SESSION['UserLogin'];
+} else {
+  echo "Welcome Guest";
+}
+
 // linking connection.php file
 include_once("connections/connection.php");
 

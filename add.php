@@ -6,7 +6,7 @@ $con = connection();
 //adding data to the database
 if (isset($_POST['submit'])) { //condition //isset() function is used to check if variable is set or null
 
-  //declaring variable for each input
+  //declaring variable and capturing data for each input
   $fname = $_POST['first_name'];
   $lname = $_POST['last_name'];
   $gender = $_POST['gender'];
