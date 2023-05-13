@@ -1,5 +1,10 @@
 <?php
 
+//checking if there is no ongoing session //!isset means null or not set
+if (!isset($_SESSION)) {
+  session_start(); //will start if there is no ongoing session
+}
+
 include_once("connections/connection.php");
 $con = connection();
 
@@ -15,11 +20,13 @@ if (isset($_POST['login'])) {
   $row = $user->fetch_assoc();
   $total = $user->num_rows; //returns the total number of user match
 
+  //checking if there is a match user
   if ($total > 0) {
-    $_SESSION['UserLogin'] = $row['username']; //store value of query in session variable
-    $_SESSION['Access'] = $row['access']; //these session variables allows access across different pages
-
-    echo $_SESSION['UserLogin'];
+    $_SESSION['UserLogin'] = $row['username'];
+    $_SESSION['Access'] = $row['access'];
+    echo header("Location: index.php");
+  } else {
+    echo "No user found.";
   }
 }
 

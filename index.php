@@ -1,8 +1,7 @@
 <?php
 
-//checking if there is no ongoing session //!isset means null or not set
 if (!isset($_SESSION)) {
-  session_start(); //will start if there is no ongoing session
+  session_start();
 }
 
 //checking whether there is a user logged-in and return message with user's name
@@ -46,6 +45,13 @@ do {
 <body>
   <h1>Student Management System</h1>
   <br><br>
+
+  <!-- set values and conditions of a button depending if there is user logged-in -->
+  <?php if (isset($_SESSION['UserLogin'])) { ?>
+    <a href="logout.php">Logout</a>
+  <?php } else { ?>
+    <a href="login.php">Login</a>
+  <?php } ?>
 
   <a href="add.php">Add New</a>
 
